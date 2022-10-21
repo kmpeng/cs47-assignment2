@@ -1,17 +1,18 @@
-import { StyleSheet, Text, View, Image, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, Image, Dimensions, ImageBackground } from 'react-native';
 import { Themes, Icons, Profiles } from '../../assets/Themes';
 
 export default function Body() {
   return (
     <View style={styles.body}>
       <View style={styles.profileCard}>
-        <Image source={Profiles.mtl.image} style={styles.profilePicture}/>
-        <Text style={styles.profileName}>
-          {Profiles.mtl.name}
-        </Text>
-        <Text style={styles.profileDesc}>
-          {Profiles.mtl.caption}
-        </Text>
+        <ImageBackground source={Profiles.mtl.image} style={styles.profilePicture}>
+          <Text style={styles.profileName}>
+            {Profiles.mtl.name}
+          </Text>
+          <Text style={styles.profileDesc}>
+            {Profiles.mtl.caption}
+          </Text>
+        </ImageBackground>
       </View>
       <View style={styles.prompt}>
         <View style={styles.textContainer}>
@@ -36,7 +37,6 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   profileCard: {
-    position: 'relative',
     width: Dimensions.get('window').width * 0.8,
     height: undefined,
     aspectRatio: 1,
@@ -49,25 +49,24 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
   profilePicture: {
-    height: '100%',
-    width: undefined,
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
     aspectRatio: 1,
-    borderRadius: 8
+    borderRadius: 8,
+    overflow: 'hidden'
   },
   profileName: {
-    position: 'absolute',
     fontSize: 32,
     color: Themes.light.textSecondary,
     fontFamily: 'Sydney',
     padding: 10
   },
   profileDesc: {
-    position: 'absolute',
     fontSize: 18,
     color: Themes.light.textSecondary,
     fontFamily: 'Sydney',
     padding: 10,
-    bottom: 0
   },
   prompt: {
     backgroundColor: Themes.light.bgSecondary,

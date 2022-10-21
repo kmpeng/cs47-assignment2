@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     height: Platform.OS === 'ios' ? 41 : 54,
-    width: Dimensions.get('window').width - 75,
+    width: Dimensions.get('window').width * 0.8,
     alignSelf: 'center'
   },
   navBarButtons: {
